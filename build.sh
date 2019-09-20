@@ -1,14 +1,14 @@
 #! /bin/bash
 # sudo mount -i -o remount,exec,dev /data
-sudo cp ./panda /usr/share/debootstrap/scripts/
+sudo cp ./stable /usr/share/debootstrap/scripts/
 sudo mkdir -p /usr/share/keyrings/
 sudo cp ./deepin-archive-keyring.gpg /usr/share/keyrings/
 
 sudo rm -rf build/amd64
-mkdir build/amd64
+mkdir -p build/amd64
 cd build/amd64
 
-sudo debootstrap --variant=minbase --no-check-gpg --arch=amd64 panda rootfs https://mirrors.aliyun.com/deepin/ && \
+sudo debootstrap --variant=minbase --no-check-gpg --arch=amd64 stable rootfs https://mirrors.aliyun.com/deepin/ && \
     sudo cp ../../deepin-archive-keyring.gpg rootfs/etc/apt/trusted.gpg.d/ && sudo cp ../../deepin-pools-keyring.gpg rootfs/etc/apt/trusted.gpg.d/ && \
     sudo chroot ./rootfs apt-get autoclean && \
     sudo chroot ./rootfs apt-get clean && \
