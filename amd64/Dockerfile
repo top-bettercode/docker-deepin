@@ -40,4 +40,4 @@ RUN rm /bin/sh && \
     find /usr/share/doc -type f -delete && \
     find /usr/share/man -type f -delete
 
-CMD ["bash"]
+CMD ["/bin/bash"]
