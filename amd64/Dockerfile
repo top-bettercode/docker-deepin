@@ -2,7 +2,7 @@ FROM debian
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-COPY ./stable /usr/share/debootstrap/scripts/stable
+COPY ./stable /usr/share/debootstrap/scripts/lion
 COPY ./deepin-archive-keyring.gpg /usr/share/keyrings/deepin-archive-keyring.gpg
 COPY ./deepin-pools-keyring.gpg /root/deepin-pools-keyring.gpg
 RUN apt-get update && apt-get install -y debootstrap && \
